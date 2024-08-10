@@ -95,3 +95,14 @@ sorted_pairs = sorted(pairs, key=lambda pair: pairs[1])   # 按照第二个关�
 list1 = [1, 2, 3]
 power_list = list(map(lambda x : x**2, list1))
 print(power_list)  # 输出[1, 4, 9]
+print('*' * 130)
+
+# 详细说明
+def Add(x, y):
+    return x + y
+
+Add_1 = lambda x, y : x + y
+res_Add = Add(1, 2)
+res_Add1 = Add_1(1, 10)
+print("res_Add:", res_Add)
+print("res_Add1:", res_Add1)
