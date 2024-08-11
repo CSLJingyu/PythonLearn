@@ -122,7 +122,7 @@ small.run()
 small.say()
 
 
-# 多态 常常用在继承上
+# 多态 常常用在继承上 然后进行重写
 # 同样的行为,传入不同的对象,得到不同的状态
 class Animal:
     def speak(self):
