@@ -47,8 +47,9 @@ print(f'修改后年龄属性:{p.age}')
 # 第二个参数: 设置属性时需要用到的方法
 
 class Woman:
-    def __init__(self):
+    def __init__(self, name):
         self.__age = 29
+        self.name = name
 
     def get_age(self):
         return self.__age
@@ -56,14 +57,26 @@ class Woman:
     def set_age(self, new_age):
         self.__age = new_age
 
+    @property
+    def name(self):
+        return self._name  # 单下滑线表示内部使用
+
+    @name.setter
+    def name(self, new_name):
+        self._name = new_name
+
     # 类属性方式的property属性
     age = property(get_age, set_age)
 
 
-woman = Woman()
+woman = Woman("kk")
 print(f'修改前的年龄: {woman.age}')
 woman.set_age(345)
 print(f"修改后的年龄: {woman.age}")
+
+print(f"名字{woman.name}")
+woman.name = "www"
+print(f"名字{woman.name}")
 
 
 # 上下文管理器
@@ -90,11 +103,9 @@ class File:
 
 # 使用with语句完成文件操作
 with File(r"C:\Users\舒言\Desktop\X.txt", "w") as f:
-
     while True:
         user_input = input()
         if user_input.lower() == 'exit':
             break
 
         f.write(user_input + '\n')
-
