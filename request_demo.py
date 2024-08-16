@@ -26,3 +26,8 @@ for a, b in zip(city, weather):
 for item in lst:
     print(item)
 
+
+# 将爬取结果保存在本地
+with open(r'D:\Pycharm\PythonLearn\v.txt', 'w') as file:
+    file.write(lst)
+
