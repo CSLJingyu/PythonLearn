@@ -26,8 +26,11 @@ for a, b in zip(city, weather):
 for item in lst:
     print(item)
 
-
+print('#' * 50)
 # 将爬取结果保存在本地
 with open(r'D:\Pycharm\PythonLearn\v.txt', 'w') as file:
-    file.write(lst)
+    for item in lst:
+        str = "--".join(item)
+        file.write(str + '\n')
+        
 
