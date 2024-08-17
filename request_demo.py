@@ -32,5 +32,5 @@ with open(r'D:\Pycharm\PythonLearn\v.txt', 'w') as file:
     for item in lst:
         str = "--".join(item)
         file.write(str + '\n')
-        
+
 
