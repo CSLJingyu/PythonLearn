@@ -34,6 +34,8 @@ class Consumer(Thread):
     def run(self):
         for _ in range(5):
             # 取出中间仓库的数据
+            # 如果队列中没有数据,那么get()方法会阻塞消费线程,一直到有数据的时候才会执行
+            # 当生产者放入生成的数据后,消费者线程会立即从队列中取出改数据
             value = self.queue.get()
             print(f"消费者线程:{self.name}取出了{value}")
 
