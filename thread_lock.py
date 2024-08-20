@@ -16,9 +16,10 @@ def scale_ticket():
     for i in range(100):  # 每个线程执行100次循环
         # 获取锁
         lock.acquire()
-        if ticket > 0:
-            print(f'{threading.currentThread().name}正在卖第{ticket}张票')
-            ticket -= 1
+        with lock:
+            if ticket > 0:
+                print(f'{threading.currentThread().name}正在卖第{ticket}张票')
+                ticket -= 1
 
         time.sleep(1)
         # 释放锁
