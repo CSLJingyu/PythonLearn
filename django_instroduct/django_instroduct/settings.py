@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -53,6 +53,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'django_instroduct.urls'
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -74,11 +76,13 @@ WSGI_APPLICATION = 'django_instroduct.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
+# 模型层相关数据库的配置
 DATABASES = {
     'default': {
+        # 数据库驱动
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 数据库名字
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
