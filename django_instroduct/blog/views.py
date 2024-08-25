@@ -122,4 +122,20 @@ def get_detail_page(request, article_id):
                    }
                   )
 
-# 分页的URL设置
+
+# 返回最近插入的文章
+def get_least_article(request):
+    # 排序逆序
+    top3_article_list = Article.objects.order_by('-publish_date', )[:3]
+    least_article = Article.objects.order_by('-publish_date' )[:1]
+
+    if least_article is None:
+        print('No')
+    else:
+        print("标题:", least_article[0].title)
+    # print('least_article', least_article.title)
+
+    return render(request, 'blog/x.html',
+                  {
+                      'least_article': least_article[0]
+                  })
